@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Procesador AMD Ryzen 5 5500X3D", "precio": 150000, "stock": 10 },
+  { "id": 2, "nombre": "Placa de Video XFX RX 6750 XT", "precio": 350000, "stock": 5 },
+  { "id": 3, "nombre": "Memoria RAM DDR5 16GB Corsair", "precio": 45000, "stock": 20 }
+]

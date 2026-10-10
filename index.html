@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Tienda PC</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1>Gestor de Componentes de PC</h1>
+        
+        <section class="panel-agregar">
+            <h2>Agregar Nuevo Componente</h2>
+            <form id="form-agregar">
+                <input type="text" id="input-nombre" placeholder="Nombre" required>
+                <input type="number" id="input-precio" placeholder="Precio" required>
+                <input type="number" id="input-stock" placeholder="Stock" required>
+                <button type="submit">Agregar al Catálogo</button>
+            </form>
+        </section>
+
+        <section class="panel-catalogo">
+            <h2>Catálogo Disponible</h2>
+            <div id="contenedor-productos"></div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+</html>
