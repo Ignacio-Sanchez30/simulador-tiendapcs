@@ -26,7 +26,6 @@ const pruebaVideo = new Componente(102, "Nvidia RTX 4090", 1200000, 3);
 const pruebaRAM = new Componente(103, "RAM 32GB Kingston", 90000, 15);
 
 console.log("--- ESTADO ANTES DE EJECUTAR MÉTODOS ---");
-// Al usar JSON.stringify congelamos el valor exacto en texto en este instante de tiempo
 console.log(JSON.stringify(pruebaProcesador));
 console.log(JSON.stringify(pruebaVideo));
 console.log(JSON.stringify(pruebaRAM));
@@ -54,10 +53,18 @@ setTimeout(() => {
     }).showToast();
 }, 1000);
 
+const agregarPruebasAlCatalogo = () => {
+    if (!catalogo.some(producto => producto.id === 101)) {
+        catalogo.push(pruebaProcesador, pruebaVideo, pruebaRAM);
+        sincronizarStorage();
+    }
+};
+
 const cargarStorage = () => {
     const datosGuardados = localStorage.getItem("catalogoPC");
     if (datosGuardados) {
         catalogo = JSON.parse(datosGuardados).map(item => new Componente(item.id, item.nombre, item.precio, item.stock));
+        agregarPruebasAlCatalogo();
         renderizarCatalogo(catalogo);
     } else {
         obtenerDatosDeJSON();
@@ -78,7 +85,7 @@ const obtenerDatosDeJSON = async () => {
         const datos = await respuesta.json();
         catalogo = datos.map(item => new Componente(item.id, item.nombre, item.precio, item.stock));
         
-        sincronizarStorage();
+        agregarPruebasAlCatalogo();
         renderizarCatalogo(catalogo);
     } catch (error) {
         contenedorProductos.innerHTML = `<p>Error de conexión: ${error.message}</p>`;
