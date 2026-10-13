@@ -26,18 +26,19 @@ const pruebaVideo = new Componente(102, "Nvidia RTX 4090", 1200000, 3);
 const pruebaRAM = new Componente(103, "RAM 32GB Kingston", 90000, 15);
 
 console.log("--- ESTADO ANTES DE EJECUTAR MÉTODOS ---");
-console.log(pruebaProcesador);
-console.log(pruebaVideo);
-console.log(pruebaRAM);
+// Al usar JSON.stringify congelamos el valor exacto en texto en este instante de tiempo
+console.log(JSON.stringify(pruebaProcesador));
+console.log(JSON.stringify(pruebaVideo));
+console.log(JSON.stringify(pruebaRAM));
 
 pruebaProcesador.vender(2);
 pruebaVideo.aplicarDescuento(10);
 pruebaRAM.vender(5);
 
 console.log("--- ESTADO DESPUÉS DE EJECUTAR MÉTODOS ---");
-console.log(pruebaProcesador);
-console.log(pruebaVideo);
-console.log(pruebaRAM);
+console.log(JSON.stringify(pruebaProcesador));
+console.log(JSON.stringify(pruebaVideo));
+console.log(JSON.stringify(pruebaRAM));
 console.log("------------------------------------------");
 
 let catalogo = [];
